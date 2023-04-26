@@ -1,5 +1,5 @@
 {
-  "name": "clippyts",
+  "name": "@dcpesses/clippyts",
   "version": "1.0.5",
   "description": "Same old Clippy. Modern JavaScript.",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lizozom/clippyts.git"
+    "url": "git+https://github.com/dcpesses/clippyts.git"
   },
   "license": "MIT",
   "bugs": {
