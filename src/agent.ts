@@ -226,9 +226,10 @@ export default class Agent {
 
     /***
      * Close the current balloon
+     * @param {Boolean=} fast
      */
-    closeBalloon () {
-        this._balloon.hide();
+    closeBalloon (fast?: boolean) {
+        this._balloon.hide(fast);
     }
 
     delay (time: number) {
@@ -276,16 +277,17 @@ export default class Agent {
 
     /***
      * Play a random animation
+     * @param {Number} timeout
      * @return {Deferred}
      */
-    animate (): any {
+    animate (timeout?: number, cb?: Function): any {
         let animations = this.animations();
         let anim = animations[Math.floor(Math.random() * animations.length)];
         // skip idle animations
         if (anim.indexOf('Idle') === 0) {
-            return this.animate();
+            return this.animate(timeout, cb);
         }
-        return this.play(anim);
+        return this.play(anim, timeout, cb);
     }
 
     /**************************** Utils ************************************/
