@@ -7,6 +7,7 @@ import { Deferred, getHeight, getOffset, getWidth, getWindowScroll } from './uti
 export interface AgentOptions {
     agent: AgentWrapper;
     selector?: string;
+    disableDrag?: boolean;
 }
 
 export default class Agent {
@@ -26,7 +27,8 @@ export default class Agent {
     constructor (options: AgentOptions) {
         const {
             agent,
-            selector
+            selector,
+            disableDrag
         } = options;
 
         this._queue = new Queue(this._onQueueEmpty.bind(this));
@@ -43,7 +45,9 @@ export default class Agent {
 
         this._animator = new Animator(this._el, agent, agentSounds);
         this._balloon = new Balloon(this._el);
-        this._setupEvents();
+        if (!disableDrag) {
+            this._setupEvents();
+        }
     }
 
     /***
