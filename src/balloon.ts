@@ -156,6 +156,7 @@ export default class Balloon {
     public hide (fast?: boolean) {
         if (fast) {
             this._balloon?.setAttribute('hidden', 'true');
+            this._hidden = true;
             return;
         }
 
@@ -192,6 +193,7 @@ export default class Balloon {
                 idx++;
                 // @ts-ignore
                 this._loop = window.setTimeout(this._addWord?.bind(this), time);
+                this.reposition();
             }
         };
 
