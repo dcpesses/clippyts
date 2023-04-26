@@ -17,7 +17,9 @@
 .clippy-content {
     max-width: 200px;
     min-width: 120px;
-    font-family: "Microsoft Sans", sans-serif;
+    font-family: "Tahoma","Microsoft Sans", "Microsoft Sans Serif", "MS Sans", sans-serif;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: none;
     font-size: 10pt;
 }
 
